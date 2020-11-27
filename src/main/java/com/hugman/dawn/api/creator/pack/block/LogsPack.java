@@ -19,11 +19,11 @@ public class LogsPack extends Pack {
 
 	private final String logName;
 	private final String woodName;
-	private final MaterialColor insideColor;
-	private final MaterialColor barkColor;
+	private final MapColor insideColor;
+	private final MapColor barkColor;
 	private final boolean isNether;
 
-	protected LogsPack(ModData modData, String name, MaterialColor insideColor, MaterialColor barkColor, boolean isNether) {
+	protected LogsPack(ModData modData, String name, MapColor insideColor, MapColor barkColor, boolean isNether) {
 		this.logName = isNether ? "_stem" : "_log";
 		this.woodName = isNether ? "_hyphae" : "_wood";
 		this.insideColor = insideColor;
@@ -74,19 +74,19 @@ public class LogsPack extends Pack {
 
 	public static class Builder implements Pack.Builder {
 		private final String name;
-		private final MaterialColor insideColor;
-		private final MaterialColor barkColor;
+		private final MapColor insideColor;
+		private final MapColor barkColor;
 		private final boolean isNether;
 
 		/**
 		 * Creates a creator pack containing a log, a wood block and their stripped variants.
 		 *
 		 * @param name        The name of the wood type. (ex: <code>oak</code>)
-		 * @param insideColor The material color of the inside of logs.
-		 * @param barkColor   The material color of the bark side of logs.
+		 * @param insideColor The map color of the inside of logs.
+		 * @param barkColor   The map color of the bark side of logs.
 		 * @param isNether    Defines if the wood type comes from the nether. (changes the name, sounds and materials)
 		 */
-		public Builder(String name, MaterialColor insideColor, MaterialColor barkColor, boolean isNether) {
+		public Builder(String name, MapColor insideColor, MapColor barkColor, boolean isNether) {
 			this.name = name;
 			this.insideColor = insideColor;
 			this.barkColor = barkColor;

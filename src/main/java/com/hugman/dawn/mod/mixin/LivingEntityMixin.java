@@ -51,7 +51,7 @@ public abstract class LivingEntityMixin {
 			LootContext.Builder builder = this.getLootContextBuilder(true, source);
 			if(EnchantmentUtil.hasEnchantment(DawnEnchantments.TELEKINESIS, player.getMainHandStack())) {
 				for(ItemStack stack : lootTable.generateLoot(builder.build(LootContextTypes.ENTITY))) {
-					player.inventory.insertStack(stack);
+					player.getInventory().insertStack(stack);
 				}
 				info.cancel();
 			}

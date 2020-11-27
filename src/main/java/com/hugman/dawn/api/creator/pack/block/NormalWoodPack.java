@@ -7,7 +7,7 @@ import com.hugman.dawn.api.util.BlockSettings;
 import com.hugman.dawn.api.util.ModData;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.MaterialColor;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.item.ItemGroup;
 
@@ -17,7 +17,7 @@ public class NormalWoodPack extends WoodPack {
 	private final PottedPlantPack saplingPack;
 	private final LeavesPack leavesPack;
 
-	protected NormalWoodPack(ModData modData, String suffix, SaplingGenerator saplingGenerator, Predicate<BlockState> saplingSoilPredicate, MaterialColor planksColor, MaterialColor insideColor, MaterialColor barkColor) {
+	protected NormalWoodPack(ModData modData, String suffix, SaplingGenerator saplingGenerator, Predicate<BlockState> saplingSoilPredicate, MapColor planksColor, MapColor insideColor, MapColor barkColor) {
 		super(modData, suffix, planksColor, insideColor, barkColor, false);
 		this.saplingPack = add(new PottedPlantPack.Builder(new BlockCreator.Builder(suffix + "_sapling", new SaplingBlock(saplingGenerator, saplingSoilPredicate, BlockSettings.SAPLING)).itemGroup(ItemGroup.DECORATIONS).render(BlockCreator.Render.CUTOUT_MIPPED)), modData);
 		this.leavesPack = add(new LeavesPack.Builder(suffix), modData);
@@ -42,9 +42,9 @@ public class NormalWoodPack extends WoodPack {
 	public static class Builder implements Pack.Builder {
 		private final String suffix;
 		private final SaplingGenerator saplingGenerator;
-		private final MaterialColor planksColor;
-		private final MaterialColor insideColor;
-		private final MaterialColor barkColor;
+		private final MapColor planksColor;
+		private final MapColor insideColor;
+		private final MapColor barkColor;
 		private Predicate<BlockState> saplingSoilPredicate;
 
 		/**
@@ -52,10 +52,10 @@ public class NormalWoodPack extends WoodPack {
 		 *
 		 * @param suffix           The suffix of the wood type. (ex: <code>crimson</code>)
 		 * @param saplingGenerator The tree generator for the sapling.
-		 * @param woodColor        The material color of the wood.
-		 * @param barkColor        The material color of the bark side of logs.
+		 * @param woodColor        The map color of the wood.
+		 * @param barkColor        The map color of the bark side of logs.
 		 */
-		public Builder(String suffix, SaplingGenerator saplingGenerator, MaterialColor woodColor, MaterialColor barkColor) {
+		public Builder(String suffix, SaplingGenerator saplingGenerator, MapColor woodColor, MapColor barkColor) {
 			this(suffix, saplingGenerator, woodColor, woodColor, barkColor);
 		}
 
@@ -64,11 +64,11 @@ public class NormalWoodPack extends WoodPack {
 		 *
 		 * @param suffix           The suffix of the wood type. (ex: <code>crimson</code>)
 		 * @param saplingGenerator The tree generator for the sapling.
-		 * @param planksColor      The material color of the planks.
-		 * @param insideColor      The material color of the inside of logs.
-		 * @param barkColor        The material color of the bark side of logs.
+		 * @param planksColor      The map color of the planks.
+		 * @param insideColor      The map color of the inside of logs.
+		 * @param barkColor        The map color of the bark side of logs.
 		 */
-		public Builder(String suffix, SaplingGenerator saplingGenerator, MaterialColor planksColor, MaterialColor insideColor, MaterialColor barkColor) {
+		public Builder(String suffix, SaplingGenerator saplingGenerator, MapColor planksColor, MapColor insideColor, MapColor barkColor) {
 			this.suffix = suffix;
 			this.saplingGenerator = saplingGenerator;
 			this.planksColor = planksColor;

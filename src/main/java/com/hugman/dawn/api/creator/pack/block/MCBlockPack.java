@@ -17,7 +17,7 @@ public class MCBlockPack extends Pack {
 
 	protected MCBlockPack(ModData modData, String name, BlockGetter getter, FabricBlockSettings settings, ItemGroup itemGroup, BlockCreator.Render render) {
 		for(DyeColor color : DyeColor.values()) {
-			blockMap.put(color, add(new BlockCreator.Builder(color.getName() + "_" + name, getter, settings.materialColor(color.getMaterialColor())).render(render).itemGroup(itemGroup), modData));
+			blockMap.put(color, add(new BlockCreator.Builder(color.getName() + "_" + name, getter, settings.mapColor(color.getMapColor())).render(render).itemGroup(itemGroup), modData));
 		}
 	}
 

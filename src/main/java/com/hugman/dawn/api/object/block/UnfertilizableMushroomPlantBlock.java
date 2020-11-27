@@ -9,9 +9,9 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class MushroomPlantBlock extends net.minecraft.block.MushroomPlantBlock {
-	public MushroomPlantBlock(Block.Settings builder) {
-		super(builder);
+public class UnfertilizableMushroomPlantBlock extends net.minecraft.block.MushroomPlantBlock {
+	public UnfertilizableMushroomPlantBlock(Block.Settings builder) {
+		super(builder, null);
 	}
 
 	@Override

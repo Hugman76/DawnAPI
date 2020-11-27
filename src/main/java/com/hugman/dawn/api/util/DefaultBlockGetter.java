@@ -2,7 +2,7 @@ package com.hugman.dawn.api.util;
 
 import com.hugman.dawn.api.creator.BlockCreator;
 import com.hugman.dawn.api.object.block.DoorBlock;
-import com.hugman.dawn.api.object.block.MushroomPlantBlock;
+import com.hugman.dawn.api.object.block.UnfertilizableMushroomPlantBlock;
 import com.hugman.dawn.api.object.block.PressurePlateBlock;
 import com.hugman.dawn.api.object.block.StairsBlock;
 import com.hugman.dawn.api.object.block.StoneButtonBlock;
@@ -93,7 +93,7 @@ public enum DefaultBlockGetter implements BlockGetter {
 			case PLANT_PILE:
 				return new PlantPileBlock(newSettings);
 			case MUSHROOM:
-				return new MushroomPlantBlock(newSettings);
+				return new UnfertilizableMushroomPlantBlock(newSettings);
 			case MUSHROOM_BLOCK:
 				return new MushroomBlock(newSettings);
 		}

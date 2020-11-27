@@ -7,7 +7,7 @@ import com.hugman.dawn.api.util.ModData;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.MaterialColor;
+import net.minecraft.block.MapColor;
 
 public class WoodPack extends Pack {
 	private final Block planks;
@@ -15,12 +15,12 @@ public class WoodPack extends Pack {
 	private final MSBlockPack woodenBlocks;
 	private final MSBlockPack barkBlocks;
 
-	protected WoodPack(ModData modData, String name, MaterialColor planksColor, MaterialColor insideColor, MaterialColor barkColor, boolean isNether) {
-		FabricBlockSettings settings = FabricBlockSettings.copyOf(isNether ? Blocks.CRIMSON_PLANKS : Blocks.OAK_PLANKS).materialColor(planksColor);
+	protected WoodPack(ModData modData, String name, MapColor planksColor, MapColor insideColor, MapColor barkColor, boolean isNether) {
+		FabricBlockSettings settings = FabricBlockSettings.copyOf(isNether ? Blocks.CRIMSON_PLANKS : Blocks.OAK_PLANKS).mapColor(planksColor);
 		this.planks = add(new BlockCreator.Builder(name, DefaultBlockGetter.PLANKS, settings), modData);
 		this.logs = add(new LogsPack.Builder(name, insideColor, barkColor, isNether), modData);
 		this.woodenBlocks = add(new MSBlockPack.Builder(name, settings, DefaultBlockGetter.STAIRS, DefaultBlockGetter.SLAB, DefaultBlockGetter.TRAPDOOR, DefaultBlockGetter.WOOD_PRESSURE_PLATE, DefaultBlockGetter.WOOD_BUTTON, DefaultBlockGetter.FENCE, DefaultBlockGetter.FENCE_GATE, DefaultBlockGetter.DOOR), modData);
-		this.barkBlocks = add(new MSBlockPack.Builder(name + logs.getWoodName(), settings.materialColor(barkColor), DefaultBlockGetter.STAIRS, DefaultBlockGetter.SLAB, DefaultBlockGetter.WOOD_BUTTON), modData);
+		this.barkBlocks = add(new MSBlockPack.Builder(name + logs.getWoodName(), settings.mapColor(barkColor), DefaultBlockGetter.STAIRS, DefaultBlockGetter.SLAB, DefaultBlockGetter.WOOD_BUTTON), modData);
 	}
 
 	public Block getPlanks() {
@@ -89,21 +89,21 @@ public class WoodPack extends Pack {
 
 	public static class Builder implements Pack.Builder {
 		private final String name;
-		private final MaterialColor planksColor;
-		private final MaterialColor insideColor;
-		private final MaterialColor barkColor;
+		private final MapColor planksColor;
+		private final MapColor insideColor;
+		private final MapColor barkColor;
 		private final boolean isNether;
 
 		/**
 		 * Creates an entry pack containing blocks for basic wood types.
 		 *
 		 * @param name        The name of the wood type. (ex: <code>oak</code>)
-		 * @param planksColor The material color of the planks.
-		 * @param insideColor The material color of the inside of logs.
-		 * @param barkColor   The material color of the bark side of logs.
+		 * @param planksColor The map color of the planks.
+		 * @param insideColor The map color of the inside of logs.
+		 * @param barkColor   The map color of the bark side of logs.
 		 * @param isNether    Defines if the wood type comes from the nether. (changes the name, sounds and materials)
 		 */
-		public Builder(String name, MaterialColor planksColor, MaterialColor insideColor, MaterialColor barkColor, boolean isNether) {
+		public Builder(String name, MapColor planksColor, MapColor insideColor, MapColor barkColor, boolean isNether) {
 			this.name = name;
 			this.planksColor = planksColor;
 			this.insideColor = insideColor;

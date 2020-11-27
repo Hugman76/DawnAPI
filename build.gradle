@@ -45,8 +45,8 @@ dependencies {
 
     includeMod "me.shedaniel.cloth:config-2:${project.cloth_version}"
     includeMod "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}"
-    includeMod "com.terraformersmc.terraform-api:terraform-tree-api-v1:${project.terraform_tree_version}"
-    includeMod "com.terraformersmc.terraform-api:terraform-shapes-api-v1:${project.terraform_shapes_version}"
+    //includeMod "com.terraformersmc.terraform-api:terraform-tree-api-v1:${project.terraform_tree_version}"
+    //includeMod "com.terraformersmc.terraform-api:terraform-shapes-api-v1:${project.terraform_shapes_version}"
 
     compileOnly "com.google.code.findbugs:jsr305:3.0.2"
 }
